@@ -1,0 +1,10 @@
+{
+  "name": "jarvis-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix jarvis-ui run dev",
+    "build": "npm --prefix jarvis-ui run build",
+    "lint": "npm --prefix jarvis-ui run lint",
+    "preview": "npm --prefix jarvis-ui run preview"
+  }
+}
