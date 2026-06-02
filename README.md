@@ -39,7 +39,9 @@ It can understand commands, answer naturally, search for information, keep track
 
 Most assistants answer questions.
 
-Jarvis was built to feel more like a true personal AI companion — one that understands context, interacts through voice, and gives visibility into what it is doing as it works.
+Jarvis was built to act.
+
+It understands context, interacts through voice, accesses tools, and provides visibility into what it is doing as it works.
 
 The goal is not just conversation.
 
@@ -49,14 +51,29 @@ The goal is assistance.
 
 ## Highlights
 
-* Voice-first interaction
-* Context-aware conversations
-* Real-time information retrieval
-* Calendar assistance
-* Email assistance
-* Natural voice responses
-* Live system awareness
-* Iron Man-inspired visual design
+⚡ Voice-First Interaction  
+Speak naturally and receive spoken responses.
+
+🧠 Context-Aware Conversations  
+Maintains conversational context across interactions.
+
+🌐 Real-Time Information Access  
+Searches and retrieves up-to-date information when needed.
+
+📅 Calendar Assistance  
+Check schedules and upcoming events through natural language.
+
+📧 Email Assistance  
+Read and summarize inbox content conversationally.
+
+🎙️ Natural Voice Responses  
+Human-like voice synthesis for a more immersive experience.
+
+📡 Live Intelligence Panel  
+Monitor Jarvis' activity, execution state, and system awareness in real time.
+
+🦾 Iron Man-Inspired Interface  
+Custom HUD-style UI with animated state transitions.
 
 ---
 
