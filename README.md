@@ -6,7 +6,7 @@
 
 ### Just A Rather Very Intelligent System
 
-**A personal AI assistant inspired by Iron Man — voice-activated, context-aware, and built for real-time interaction.**
+**A voice-first AI assistant inspired by Iron Man — built to think, speak, search, and assist in real time.**
 
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-AI_Engine-blue?style=for-the-badge\&logo=google)](https://deepmind.google/technologies/gemini/)
 [![ElevenLabs](https://img.shields.io/badge/ElevenLabs-Voice_Synthesis-purple?style=for-the-badge)](https://elevenlabs.io)
@@ -20,7 +20,8 @@
 
 <div align="center">
 
-📸 Screenshots are included below to showcase the assistant in action.
+🎥 **Demo Video:** Coming soon
+📸 **Screenshots:** Included below
 
 </div>
 
@@ -28,9 +29,9 @@
 
 ## Overview
 
-Jarvis is a personal AI assistant designed to feel fast, intelligent, and responsive. It combines voice interaction, AI reasoning, web access, and a custom Iron Man-inspired interface to create an assistant experience that feels alive.
+Jarvis is a personal AI assistant built to feel fast, intelligent, and responsive. It combines conversational AI, voice interaction, real-time information access, and a custom Iron Man-inspired interface into a single assistant experience.
 
-It can understand commands, answer naturally, search for information, keep track of context, and respond through realistic voice output. The entire experience is wrapped in a polished UI with live state transitions and an Intelligence Panel that shows what Jarvis is doing in real time.
+It can understand commands, answer naturally, search for information, keep track of context, and respond through realistic voice output. The interface is designed to feel alive, with smooth visual transitions and live feedback that make every interaction feel purposeful.
 
 ---
 
@@ -38,11 +39,24 @@ It can understand commands, answer naturally, search for information, keep track
 
 Most assistants answer questions.
 
-Jarvis was built to feel more like a true personal AI companion — one that understands context, interacts through voice, and provides visibility into what it is doing as it works.
+Jarvis was built to feel more like a true personal AI companion — one that understands context, interacts through voice, and gives visibility into what it is doing as it works.
 
 The goal is not just conversation.
 
 The goal is assistance.
+
+---
+
+## Highlights
+
+* Voice-first interaction
+* Context-aware conversations
+* Real-time information retrieval
+* Calendar assistance
+* Email assistance
+* Natural voice responses
+* Live system awareness
+* Iron Man-inspired visual design
 
 ---
 
@@ -70,7 +84,9 @@ The goal is assistance.
 
 One of Jarvis’ defining features is the **Intelligence Panel**.
 
-Instead of behaving like a black box, Jarvis exposes its current activity in real time:
+Instead of behaving like a black box, Jarvis exposes its current activity in real time.
+
+The panel displays:
 
 * Current execution state
 * Active tool usage
@@ -95,51 +111,6 @@ This creates a more transparent, immersive, and premium assistant experience.
 * **Context Awareness** — Jarvis keeps track of conversation flow within a session
 * **Custom Iron Man UI** — A sleek dark interface with animated transitions between idle, listening, processing, and speaking states
 * **Modular Assistant Design** — Built so new tools and capabilities can be added cleanly
-
----
-
-## Capabilities at a Glance
-
-* Conversational AI
-* Voice interaction
-* Real-time information retrieval
-* Calendar management
-* Email assistance
-* Session memory
-* Live system awareness
-* Elegant visual feedback
-
----
-
-## Architecture
-
-```text
-User Voice Input
-       │
-       ▼
-   React / Vite UI  ────────────────┐
-       │                           │
-       │  Command + Context         │
-       ▼                           │
-   Assistant Gateway               │
-       │                           │
-       ▼                           │
-   AI Orchestration Layer          │
-       │                           │
-       ├── Web Search              │
-       ├── Calendar Access         │
-       ├── Email Access            │
-       └── Session Memory          │
-       │
-       ▼
-   AI Response Generation
-       │
-       ▼
-   Voice Synthesis
-       │
-       ▼
-   Audio Playback in UI
-```
 
 ---
 
@@ -217,12 +188,23 @@ jarvis/
 
 ## Roadmap
 
+### Memory & Intelligence
+
 * [ ] Long-term memory support
+* [ ] Personalized user profiles
+* [ ] Context persistence across sessions
+* [ ] Smarter tool routing and task planning
+
+### Productivity
+
 * [ ] Notion integration for notes and tasks
 * [ ] Telegram access from mobile
+* [ ] Task management and reminders
+
+### Accessibility
+
 * [ ] Wake word support
 * [ ] Multi-language voice interaction
-* [ ] Smarter tool routing and task planning
 * [ ] Improved mobile-friendly layout
 
 ---
