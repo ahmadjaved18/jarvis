@@ -254,6 +254,7 @@ function App() {
   const [orbState, setOrbState] = useState('idle')
   const [isInputFocused, setIsInputFocused] = useState(false)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const [isRightPanelOpen, setIsRightPanelOpen] = useState(false)
   const [historyExpanded, setHistoryExpanded] = useState(true)
   const [taskLine, setTaskLine] = useState(() => ({
     visible: false,
@@ -276,6 +277,12 @@ function App() {
   const taskAdvanceTimerRef = useRef(null)
   const taskHideTimerRef = useRef(null)
   const systemStreamTimerRef = useRef(null)
+
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setIsSidebarCollapsed(true)
+    }
+  }, [])
 
   useEffect(() => {
     const syncAppHeight = () => {
@@ -718,7 +725,7 @@ return (
       style={{
         height: 'var(--app-height, 100vh)',
         width: '100vw',
-        touchAction: 'none',
+        touchAction: 'pan-y',
         overscrollBehavior: 'none',
       }}
     >
@@ -726,18 +733,30 @@ return (
       {/* BACKGROUND SCENE */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,_rgba(0,212,255,0.18),_transparent_34%),radial-gradient(circle_at_80%_20%,_rgba(0,102,255,0.2),_transparent_22%),linear-gradient(180deg,_#05070d_0%,_#03040a_100%)]" />
 
+      {/* Mobile Backdrop */}
+      <div 
+        className={[
+          'md:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[80] transition-opacity duration-300',
+          (!isSidebarCollapsed || isRightPanelOpen) ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        ].join(' ')}
+        onClick={() => {
+          setIsSidebarCollapsed(true)
+          setIsRightPanelOpen(false)
+        }}
+      />
+
       {/* 1. LEFT PANEL */}
       <div
         className={[
-          'group relative z-30 h-full shrink-0 border-r border-cyan-900/30 transition-[width] duration-300 ease-out',
-          isSidebarCollapsed ? 'w-4' : 'w-[320px]',
+          'group fixed md:relative top-0 left-0 z-[100] md:z-50 h-full shrink-0 transition-all duration-300 ease-out bg-slate-950 md:bg-transparent md:overflow-visible overflow-hidden',
+          isSidebarCollapsed ? 'w-0 md:w-4 -translate-x-full md:translate-x-0' : 'w-[280px] md:w-[320px] translate-x-0 md:border-r md:border-cyan-900/30',
         ].join(' ')}
       >
         <button
           type="button"
           className={[
-            'absolute top-4 z-[60] inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-300/35 bg-slate-950/90 text-cyan-100 shadow-[0_0_24px_rgba(0,212,255,0.22)] backdrop-blur-xl transition hover:border-cyan-200/70 hover:bg-cyan-400/15 hover:shadow-[0_0_34px_rgba(0,212,255,0.32)]',
-            isSidebarCollapsed ? '-right-5' : '-right-5',
+            'absolute top-4 z-[70] inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-300/35 bg-slate-950/90 text-cyan-100 shadow-[0_0_24px_rgba(0,212,255,0.22)] backdrop-blur-xl transition hover:border-cyan-200/70 hover:bg-cyan-400/15 hover:shadow-[0_0_34px_rgba(0,212,255,0.32)]',
+            isSidebarCollapsed ? 'hidden md:inline-flex -right-5' : '-right-5',
           ].join(' ')}
           aria-label={isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           aria-expanded={!isSidebarCollapsed}
@@ -747,24 +766,43 @@ return (
             ›
           </span>
         </button>
-        <Sidebar
-          isCollapsed={isSidebarCollapsed}
-          quickActions={QUICK_ACTIONS}
-          onQuickAction={handleQuickAction}
-          conversationHistory={conversationHistory}
-          historyExpanded={historyExpanded}
-          onToggleHistory={() => setHistoryExpanded((current) => !current)}
-          orbState={orbState}
-          isLoading={isLoading}
-          activeCapabilityLabel={activeCapability?.title}
-          proactiveCount={proactiveItems.length}
-          messages={messages}
-          onClearChat={handleClearChat}
-        />
+        <div className="h-full w-full overflow-hidden">
+          <Sidebar
+            isCollapsed={isSidebarCollapsed}
+            quickActions={QUICK_ACTIONS}
+            onQuickAction={handleQuickAction}
+            conversationHistory={conversationHistory}
+            historyExpanded={historyExpanded}
+            onToggleHistory={() => setHistoryExpanded((current) => !current)}
+            orbState={orbState}
+            isLoading={isLoading}
+            activeCapabilityLabel={activeCapability?.title}
+            proactiveCount={proactiveItems.length}
+            messages={messages}
+            onClearChat={handleClearChat}
+          />
+        </div>
       </div>
 
       {/* 2. CENTER PANEL */}
-      <div className="flex-1 h-full min-h-0 min-w-0 flex flex-col overflow-hidden">
+      <div className="flex-1 w-full h-full min-h-0 min-w-0 flex flex-col overflow-hidden relative z-10">
+        {/* Mobile Header */}
+        <div className="md:hidden flex items-center justify-between p-4 border-b border-cyan-900/30 bg-slate-950/80 backdrop-blur-md z-40">
+          <button 
+            onClick={() => setIsSidebarCollapsed(false)}
+            className="w-10 h-10 flex items-center justify-center rounded-lg border border-cyan-500/30 text-cyan-400 bg-cyan-950/20"
+          >
+            <span className="text-xl">☰</span>
+          </button>
+          <div className="text-cyan-100 font-bold tracking-[0.2em] text-xs">J.A.R.V.I.S</div>
+          <button 
+            onClick={() => setIsRightPanelOpen(true)}
+            className="w-10 h-10 flex items-center justify-center rounded-lg border border-cyan-500/30 text-cyan-400 bg-cyan-950/20"
+          >
+            <span className="text-xl">⚙</span>
+          </button>
+        </div>
+
         <ChatArea messages={messages} orbState={orbState} isLoading={isLoading} onToggleMic={handleToggleMic} onClearChat={handleClearChat}>
           <div className="mx-auto w-full max-w-5xl space-y-2">
             <TaskStatusLine taskLine={taskLine} />
@@ -779,7 +817,18 @@ return (
       </div>
 
       {/* 3. RIGHT PANEL */}
-      <div className="w-[350px] shrink-0 h-full border-l border-cyan-900/30 overflow-y-auto p-4 z-10 relative">
+      <div 
+        className={[
+          'fixed md:relative top-0 right-0 z-[100] md:z-10 h-full shrink-0 overflow-y-auto transition-all duration-300 bg-slate-950 md:bg-transparent md:translate-x-0 md:p-4',
+          isRightPanelOpen ? 'w-[300px] md:w-[350px] translate-x-0 p-4 border-l border-cyan-900/30' : 'w-0 md:w-[350px] translate-x-full md:translate-x-0 p-0'
+        ].join(' ')}
+      >
+        <button
+          onClick={() => setIsRightPanelOpen(false)}
+          className="md:hidden absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center rounded-full border border-cyan-500/30 text-cyan-400 bg-slate-900"
+        >
+          ✕
+        </button>
         <IntelligencePanel
           orbState={orbState}
           isLoading={isLoading}
