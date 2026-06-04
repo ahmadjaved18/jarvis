@@ -16,7 +16,7 @@ const handleMicClick = async () => {
     } else {
       await navigator.mediaDevices.getUserMedia({ audio: true })
       conversationRef.current = await Conversation.startSession({
-        agentId: 'agent_0601kt2ancttesc876z7r8ra89qb',
+        agentId: 'agent_3501kt9s7wxffd3rx4xqkx2g60ed',
         onConnect: () => { 
           setIsVoiceActive(true)
           if (typeof onToggleMic === 'function') onToggleMic()
