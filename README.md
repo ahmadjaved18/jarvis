@@ -20,7 +20,10 @@
 
 <div align="center">
 
-🎥 **Demo Video:** Coming soon
+🎥 **Demo Video:** 
+
+https://github.com/user-attachments/assets/aae6fd4c-5f1f-4ff8-9032-bc5b48ce4f95
+
 📸 **Screenshots:** Included below
 
 </div>
