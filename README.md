@@ -22,7 +22,7 @@
 
 🎥 **Demo Video:** 
 
-https://github.com/user-attachments/assets/aae6fd4c-5f1f-4ff8-9032-bc5b48ce4f95
+https://github.com/user-attachments/assets/2f2d16a5-0dd9-4318-818a-7db260a8ca71
 
 📸 **Screenshots:** Included below
 
