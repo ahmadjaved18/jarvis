@@ -11,7 +11,7 @@
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-AI_Engine-blue?style=for-the-badge&logo=google)](https://deepmind.google/technologies/gemini/)
 [![ElevenLabs](https://img.shields.io/badge/ElevenLabs-Voice_Synthesis-purple?style=for-the-badge)](https://elevenlabs.io)
 [![React](https://img.shields.io/badge/React-UI_Framework-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![Whisper STT](https://img.shields.io/badge/Whisper-Speech_to_Text-green?style=for-the-badge)](https://github.com/openai/whisper)
+[![Whisper](https://img.shields.io/badge/Speech_to_Text-Whisper-green?style=for-the-badge)](https://github.com/openai/whisper)
 
 </div>
 
@@ -21,7 +21,8 @@
 
 <div align="center">
 
-🎥 **Demo Video:**  
+🎥 **Demo Video:** 
+
 https://github.com/user-attachments/assets/2f2d16a5-0dd9-4318-818a-7db260a8ca71
 
 📸 **Screenshots:** Included below
@@ -34,9 +35,9 @@ https://github.com/user-attachments/assets/2f2d16a5-0dd9-4318-818a-7db260a8ca71
 
 Jarvis is a personal AI assistant built to feel fast, intelligent, and responsive. It combines conversational AI, voice interaction, real-time information access, and a custom Iron Man-inspired interface into a single assistant experience.
 
-Recently, Jarvis has been upgraded with a **speech-to-text voice input system using Whisper (faster-whisper + FastAPI)**. This allows users to speak directly into the assistant, where audio is converted into text and processed through the AI pipeline.
+It can understand commands, answer naturally, search for information, keep track of context, and respond through realistic voice output. The interface is designed to feel alive, with smooth visual transitions and live feedback that make every interaction feel purposeful.
 
-It can understand commands, answer naturally, search for information, keep track of context, and respond through realistic voice output. The interface is designed to feel alive, with smooth visual transitions and live feedback.
+Users can interact with Jarvis both by typing and by speaking through a built-in microphone, where speech is converted into text and processed through the same AI pipeline.
 
 ---
 
@@ -62,8 +63,8 @@ Speak or type naturally and receive intelligent responses.
 🧠 Context-Aware Conversations  
 Maintains conversational context across interactions.
 
-🎤 Whisper Speech Input  
-Real-time speech-to-text conversion using local Whisper backend.
+🎤 Voice Input Support  
+Speak directly into Jarvis using microphone input.
 
 🌐 Real-Time Information Access  
 Searches and retrieves up-to-date information when needed.
@@ -85,32 +86,6 @@ Custom HUD-style UI with animated state transitions.
 
 ---
 
-## Voice Intelligence System (NEW)
-
-Jarvis now supports a complete **speech-to-text pipeline**.
-
-### Flow:
-
-🎤 Microphone Input  
-↓  
-🧠 Whisper (faster-whisper backend)  
-↓  
-💬 Text injected into chat  
-↓  
-🚀 Sent to AI system (Gemini via n8n)  
-↓  
-🔊 Response returned (ElevenLabs optional voice output)
-
-### Features:
-
-- Click-to-talk microphone input
-- Real-time transcription
-- Fast local processing (no cloud dependency)
-- Automatic message injection into chat
-- Seamless integration with existing AI pipeline
-
----
-
 ## Interface
 
 <div align="center">
@@ -129,28 +104,33 @@ Jarvis now supports a complete **speech-to-text pipeline**.
 
 ## Intelligence Panel
 
-Jarvis exposes its internal activity in real time:
+One of Jarvis’ defining features is the **Intelligence Panel**.
+
+Instead of behaving like a black box, Jarvis exposes its current activity in real time.
+
+The panel displays:
 
 - Current execution state
-- Tool usage
+- Active tool usage
 - Processing status
-- Response generation flow
-- Live system feedback
+- Response generation progress
+- System awareness indicators
+- Live interaction feedback
 
 ---
 
 ## Features
 
-- Voice-Activated Interaction
-- Whisper Speech-to-Text Input
+- Voice-Activated Interaction (Typing + Voice Input)
 - AI-Powered Responses (Gemini via n8n)
-- ElevenLabs Voice Output
+- Real-Time Intelligence Panel
 - Web Search Capability
-- Calendar & Email Integration
+- Calendar Support
+- Email Integration
+- Natural Voice Output (ElevenLabs)
 - Context Awareness
 - Custom Iron Man UI
-- Real-Time Intelligence Panel
-- Modular Tool-Based Architecture
+- Modular Assistant Design
 
 ---
 
@@ -159,13 +139,13 @@ Jarvis exposes its internal activity in real time:
 | Layer            | Technology                     |
 | ---------------- | ------------------------------ |
 | Frontend         | React + Vite + Tailwind CSS    |
-| AI / LLM         | Google Gemini (via n8n)        |
-| Speech-to-Text   | Whisper (faster-whisper + FastAPI) |
+| AI / LLM         | Google Gemini                  |
 | Voice Synthesis  | ElevenLabs API                 |
-| Web Search       | Tavily API                     |
-| Calendar & Email | Google APIs                   |
-| Backend Layer    | n8n Workflow Engine           |
-| Interface Design | Custom HUD-style UI           |
+| Speech Input     | Whisper (faster-whisper + FastAPI) |
+| Web Search       | Tavily Search API              |
+| Calendar & Email | Google Calendar API, Gmail API |
+| Interface Design | Custom animated HUD-style UI   |
+| System Layer     | Self-hosted assistant runtime  |
 
 ---
 
@@ -175,25 +155,22 @@ Jarvis exposes its internal activity in real time:
 
 - Node.js 18+
 - Python 3.10+
-- API keys (Gemini, ElevenLabs, etc.)
+- API keys for Gemini, ElevenLabs, and others
 
 ---
 
-### 1. Clone Repo
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/ahmadjaved18/jarvis.git
 cd jarvis
-2. Setup Frontend
+2. Start Frontend
 cd ui
 npm install
 npm run dev
-3. Setup Whisper Backend
+3. Start Whisper Backend
 cd whisper_service
 pip install -r requirements.txt
-
-Run server:
-
 python -m uvicorn main:app --port 8000
 4. Environment Variables
 GEMINI_API_KEY=your_key
@@ -218,19 +195,19 @@ Long-term memory system
 Personalized assistant behavior
 Persistent context across sessions
 Voice
-Wake word ("Hey Jarvis")
-Streaming transcription
-Interruptible voice responses
+Wake word activation ("Hey Jarvis")
+Streaming speech processing
+Interruptible responses
 Productivity
 Notion integration
 Task automation
-Telegram/mobile sync
+Mobile sync (Telegram)
 Author
 
 Ahmad Javed
 Software Engineering Student · AI Systems Builder
 
-GitHub
+GitHub: https://github.com/ahmadjaved18
 
 License
 
