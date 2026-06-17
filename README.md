@@ -158,25 +158,31 @@ The panel displays:
 - API keys for Gemini, ElevenLabs, and others
 
 ---
-
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/ahmadjaved18/jarvis.git
 cd jarvis
+```
 2. Start Frontend
+```
 cd ui
 npm install
 npm run dev
+```
 3. Start Whisper Backend
+```
 cd whisper_service
 pip install -r requirements.txt
 python -m uvicorn main:app --port 8000
-4. Environment Variables
+```
+5. Environment Variables
+```
 GEMINI_API_KEY=your_key
 ELEVENLABS_API_KEY=your_key
 ELEVENLABS_VOICE_ID=your_voice_id
 TAVILY_API_KEY=your_key
+```
 Project Structure
 jarvis/
 ├── ui/
@@ -213,8 +219,9 @@ License
 
 For educational and personal use only.
 
+
 <div align="center">
 
 “Sometimes you gotta run before you can walk.” — Tony Stark
 
-</div> ```
+</div>
