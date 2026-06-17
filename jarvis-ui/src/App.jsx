@@ -677,8 +677,8 @@ function App() {
     }
   }
 
-  const handleSend = () => {
-    void sendQuery(inputValue)
+  const handleSend = (text) => {
+    void sendQuery(text ?? inputValue)
   }
 
   const handleQuickAction = (query) => {
@@ -806,12 +806,14 @@ return (
         <ChatArea messages={messages} orbState={orbState} isLoading={isLoading} onToggleMic={handleToggleMic} onClearChat={handleClearChat}>
           <div className="mx-auto w-full max-w-5xl space-y-2">
             <TaskStatusLine taskLine={taskLine} />
-            <InputBar
-              value={inputValue}
-              onChange={setInputValue}
-              onSend={handleSend}
-              disabled={isLoading}
-            />
+<InputBar
+               value={inputValue}
+               onChange={setInputValue}
+               onSend={handleSend}
+               onFocus={handleInputFocus}
+               onBlur={handleInputBlur}
+               disabled={isLoading}
+             />
           </div>
         </ChatArea>
       </div>
