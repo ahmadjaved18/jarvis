@@ -21,7 +21,7 @@
 
 <div align="center">
 
-🎥 **Demo Video:** 
+🎥 **Demo Video:**
 
 https://github.com/user-attachments/assets/2f2d16a5-0dd9-4318-818a-7db260a8ca71
 
@@ -104,7 +104,7 @@ Custom HUD-style UI with animated state transitions.
 
 ## Intelligence Panel
 
-One of Jarvis’ defining features is the **Intelligence Panel**.
+One of Jarvis' defining features is the **Intelligence Panel**.
 
 Instead of behaving like a black box, Jarvis exposes its current activity in real time.
 
@@ -136,16 +136,16 @@ The panel displays:
 
 ## Tech Stack
 
-| Layer            | Technology                     |
-| ---------------- | ------------------------------ |
-| Frontend         | React + Vite + Tailwind CSS    |
-| AI / LLM         | Google Gemini                  |
-| Voice Synthesis  | ElevenLabs API                 |
+| Layer            | Technology                         |
+| ---------------- | ---------------------------------- |
+| Frontend         | React + Vite + Tailwind CSS        |
+| AI / LLM         | Google Gemini                      |
+| Voice Synthesis  | ElevenLabs API                     |
 | Speech Input     | Whisper (faster-whisper + FastAPI) |
-| Web Search       | Tavily Search API              |
-| Calendar & Email | Google Calendar API, Gmail API |
-| Interface Design | Custom animated HUD-style UI   |
-| System Layer     | Self-hosted assistant runtime  |
+| Web Search       | Tavily Search API                  |
+| Calendar & Email | Google Calendar API, Gmail API     |
+| Interface Design | Custom animated HUD-style UI       |
+| System Layer     | Self-hosted assistant runtime      |
 
 ---
 
@@ -158,32 +158,44 @@ The panel displays:
 - API keys for Gemini, ElevenLabs, and others
 
 ---
+
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/ahmadjaved18/jarvis.git
 cd jarvis
 ```
-2. Start Frontend
-```
+
+### 2. Start Frontend
+
+```bash
 cd ui
 npm install
 npm run dev
 ```
-3. Start Whisper Backend
-```
+
+### 3. Start Whisper Backend
+
+```bash
 cd whisper_service
 pip install -r requirements.txt
 python -m uvicorn main:app --port 8000
 ```
-5. Environment Variables
-```
+
+### 4. Environment Variables
+
+```env
 GEMINI_API_KEY=your_key
 ELEVENLABS_API_KEY=your_key
 ELEVENLABS_VOICE_ID=your_voice_id
 TAVILY_API_KEY=your_key
 ```
-Project Structure
+
+---
+
+## Project Structure
+
+```
 jarvis/
 ├── ui/
 │   ├── src/
@@ -195,33 +207,46 @@ jarvis/
 │   └── requirements.txt
 ├── assets/
 └── README.md
-Roadmap
-Intelligence
-Long-term memory system
-Personalized assistant behavior
-Persistent context across sessions
-Voice
-Wake word activation ("Hey Jarvis")
-Streaming speech processing
-Interruptible responses
-Productivity
-Notion integration
-Task automation
-Mobile sync (Telegram)
-Author
+```
 
-Ahmad Javed
+---
+
+## Roadmap
+
+**Intelligence**
+- Long-term memory system
+- Personalized assistant behavior
+- Persistent context across sessions
+
+**Voice**
+- Wake word activation ("Hey Jarvis")
+- Streaming speech processing
+- Interruptible responses
+
+**Productivity**
+- Notion integration
+- Task automation
+- Mobile sync (Telegram)
+
+---
+
+## Author
+
+**Ahmad Javed**  
 Software Engineering Student · AI Systems Builder
 
-GitHub: https://github.com/ahmadjaved18
+GitHub: [https://github.com/ahmadjaved18](https://github.com/ahmadjaved18)
 
-License
+---
+
+## License
 
 For educational and personal use only.
 
+---
 
 <div align="center">
 
-“Sometimes you gotta run before you can walk.” — Tony Stark
+*"Sometimes you gotta run before you can walk." — Tony Stark*
 
 </div>
